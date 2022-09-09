@@ -1,13 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	nums := []int{1, 2, 3, 4}
-	result := productExceptSelf(nums)
-	fmt.Printf("Result:%d", result)
-}
-
 func productExceptSelf(nums []int) []int {
 	var answer []int
 	temp := 1
