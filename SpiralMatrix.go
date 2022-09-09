@@ -1,5 +1,6 @@
 package main
 
+//O(n)
 func spiralOrder(matrix [][]int) []int {
 	var result []int
 	var countElements = len(matrix[0]) * len(matrix)

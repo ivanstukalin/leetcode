@@ -1,5 +1,6 @@
 package main
 
+//O(n)
 func productExceptSelf(nums []int) []int {
 	var answer []int
 	temp := 1
