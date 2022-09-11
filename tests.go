@@ -9,6 +9,7 @@ func main() {
 	testProductOfArrayExceptSelf()
 	testSpiralMatrix()
 	testAddTwoNumbersRecursive()
+	oddEvenListTest()
 }
 
 func testProductOfArrayExceptSelf() {
@@ -16,7 +17,7 @@ func testProductOfArrayExceptSelf() {
 	answer, result := []int{24, 12, 8, 6}, productExceptSelf(nums)
 	var isResultCorrect bool
 	isResultCorrect = reflect.DeepEqual(answer, result)
-	fmt.Printf("PRODUCT OF ARRAY EXCEPT SELF: Result:%d, desicion:%t ", result, isResultCorrect)
+	fmt.Printf("PRODUCT OF ARRAY EXCEPT SELF: Result:%d, decision:%t ", result, isResultCorrect)
 	println("\n")
 }
 
@@ -25,24 +26,35 @@ func testSpiralMatrix() {
 	answer, result := []int{1, 2, 3, 6, 9, 8, 7, 4, 5}, spiralOrder(example)
 	var isResultCorrect bool
 	isResultCorrect = reflect.DeepEqual(answer, result)
-	fmt.Printf("SPIRAL MATRIX: Result:%d, desicion:%t", result, isResultCorrect)
+	fmt.Printf("SPIRAL MATRIX: Result:%d, decision:%t", result, isResultCorrect)
 	println("\n")
 }
 
 func testAddTwoNumbersRecursive()  {
-	var example1 *ListNode = new(ListNode)
-	var example2 *ListNode = new(ListNode)
-	example1.Val = 2
-	example1.Next = new(ListNode)
-	example1.Next.Val = 4
-	example1.Next.Next = new(ListNode)
-	example1.Next.Next.Val = 3
-	example2.Val = 5
-	example2.Next = new(ListNode)
-	example2.Next.Val = 6
-	example2.Next.Next = new(ListNode)
-	example2.Next.Next.Val = 4
-	result := addTwoNumbersRecursive(example1, example2)
+	var example1 ListNode = ListNode{2, &ListNode{4, &ListNode{3, nil}}}
+	var example2 ListNode = ListNode{5, &ListNode{6, &ListNode{4, nil}}}
+	result := addTwoNumbersRecursive(&example1, &example2)
 	fmt.Printf("ADD TWO NUMBERS RECURSIVE: Result:[%d,%d,%d]", result.Val, result.Next.Val, result.Next.Next.Val)
+	println("\n")
+}
+
+func oddEvenListTest()  {
+	var example ListNode = ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
+	var checker ListNode = ListNode{1, &ListNode{3, &ListNode{5, &ListNode{2, &ListNode{4, nil}}}}}
+	result := oddEvenList(&example)
+	var isResultCorrect bool
+	fmt.Printf("ODD EVEN LIST: Result:[")
+	for result != nil {
+		fmt.Printf("%d", result.Val)
+		isResultCorrect = result.Val == checker.Val
+		if !isResultCorrect {
+			result = nil
+		}
+		result = result.Next
+		if checker.Next != nil {
+			checker = *checker.Next
+		}
+	}
+	fmt.Printf("], decision: %t", isResultCorrect)
 	println("\n")
 }
