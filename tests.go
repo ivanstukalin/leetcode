@@ -13,6 +13,25 @@ func main() {
 	testValidParentheses()
 }
 
+func testValidParentheses() {
+	examples := []string{"()","[]","{}","[[[]]]","{[()]}","[{{]"}
+	answers := []bool{true,true,true,true,true,false}
+	result := -1
+	for key, example := range examples {
+		if isValid(example) != answers[key] {
+			result = key
+			break
+		}
+	}
+
+	fmt.Printf("VALID PARENTHESES:")
+	if result == -1 {
+		fmt.Println("All tests ok!")
+	} else {
+		fmt.Println("Test not okay!: ", result)
+	}
+}
+
 func testProductOfArrayExceptSelf() {
 	nums := []int{1, 2, 3, 4}
 	answer, result := []int{24, 12, 8, 6}, productExceptSelf(nums)
@@ -58,23 +77,4 @@ func oddEvenListTest()  {
 	}
 	fmt.Printf("], decision: %t", isResultCorrect)
 	println("\n")
-}
-
-func testValidParentheses() {
-	 examples := []string{"()","[]","{}","[[[]]]","{[()]}","[{{]"}
-	 answers := []bool{true,true,true,true,true,false}
-	 result := -1
-	 for key, example := range examples {
-		 if isValid(example) != answers[key] {
-			 result = key
-			 break
-		 }
-	 }
-
-	fmt.Printf("VALID PARENTHESES:")
-	 if result == -1 {
-		 fmt.Println("All tests ok!")
-	 } else {
-		 fmt.Println("Test not okay!: ", result)
-	}
 }
