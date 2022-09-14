@@ -11,6 +11,7 @@ func main() {
 	testAddTwoNumbersRecursive()
 	oddEvenListTest()
 	testValidParentheses()
+	testKthSmallestElementInBST()
 }
 
 func testValidParentheses() {
@@ -24,7 +25,30 @@ func testValidParentheses() {
 		}
 	}
 
-	fmt.Printf("VALID PARENTHESES:")
+	fmt.Printf("VALID PARENTHESES: ")
+	if result == -1 {
+		fmt.Println("All tests ok!")
+	} else {
+		fmt.Println("Test not okay!: ", result)
+	}
+}
+
+func testKthSmallestElementInBST() {
+	var examples TreeNode = TreeNode{3, &TreeNode{1, nil, &TreeNode{2, nil, nil}}, &TreeNode{4, nil, nil}}
+	var k = map[int]int{
+		1: 1,
+		2: 2,
+		3: 3,
+	}
+	result := -1
+	for checker, value := range k {
+		res := kthSmallest(&examples, value)
+		if res != checker {
+			result = checker
+			break
+		}
+	}
+	fmt.Printf("KTH SMALLEST ELEMENT IN A BST: ")
 	if result == -1 {
 		fmt.Println("All tests ok!")
 	} else {
