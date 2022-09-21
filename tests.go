@@ -12,6 +12,7 @@ func main() {
 	oddEvenListTest()
 	testValidParentheses()
 	testKthSmallestElementInBST()
+	testSetMatrixZeroes()
 }
 
 func testValidParentheses() {
@@ -54,6 +55,12 @@ func testKthSmallestElementInBST() {
 	} else {
 		fmt.Println("Test not okay!: ", result)
 	}
+}
+
+func testSetMatrixZeroes()  {
+	example := [][]int{{1, 1, 1}, {0, 1, 1}, {1, 1, 1}}
+	result := setZeroes(example)
+	fmt.Println("SET MATRIX ZEROES:", result)
 }
 
 func testProductOfArrayExceptSelf() {
