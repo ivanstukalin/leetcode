@@ -13,6 +13,7 @@ func main() {
 	testValidParentheses()
 	testKthSmallestElementInBST()
 	testSetMatrixZeroes()
+	testGroupAnagrams()
 }
 
 func testValidParentheses() {
@@ -55,6 +56,13 @@ func testKthSmallestElementInBST() {
 	} else {
 		fmt.Println("Test not okay!: ", result)
 	}
+}
+
+func testGroupAnagrams()  {
+	input := []string{"eat","tea","tan","ate","nat","bat"}
+	checker := [][]string{{"bat"},{"nat","tan"},{"ate","eat","tea"}}
+	output := groupAnagrams(input)
+	fmt.Println("GROUP ANAGRAMS:", input, output, "correct result:", checker)
 }
 
 func testSetMatrixZeroes()  {
