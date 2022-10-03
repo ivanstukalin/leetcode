@@ -14,6 +14,14 @@ func main() {
 	testKthSmallestElementInBST()
 	testSetMatrixZeroes()
 	testGroupAnagrams()
+	testRemoveDuplicates()
+}
+
+func testRemoveDuplicates() {
+	example := []int{1,2,2,3,4}
+	answer := 4
+	test := removeDuplicates(example)
+	fmt.Printf("Test remove duplicates:", test == answer)
 }
 
 func testValidParentheses() {
