@@ -15,18 +15,26 @@ func main() {
 	testSetMatrixZeroes()
 	testGroupAnagrams()
 	testRemoveDuplicates()
+	testPlusOne()
 }
 
 func testRemoveDuplicates() {
-	example := []int{1,2,2,3,4}
+	example := []int{1, 2, 2, 3, 4}
 	answer := 4
 	test := removeDuplicates(example)
-	fmt.Printf("Test remove duplicates:", test == answer)
+	fmt.Println("Test remove duplicates:", test == answer)
+}
+
+func testPlusOne() {
+	example := []int{1, 2, 3, 3}
+	answer := []int{1, 2, 3, 4}
+	test := plusOne(example)
+	fmt.Println("Test plus one:", test[len(test)-1] == answer[len(answer)-1])
 }
 
 func testValidParentheses() {
-	examples := []string{"()","[]","{}","[[[]]]","{[()]}","[{{]"}
-	answers := []bool{true,true,true,true,true,false}
+	examples := []string{"()", "[]", "{}", "[[[]]]", "{[()]}", "[{{]"}
+	answers := []bool{true, true, true, true, true, false}
 	result := -1
 	for key, example := range examples {
 		if isValid(example) != answers[key] {
@@ -44,7 +52,7 @@ func testValidParentheses() {
 }
 
 func testKthSmallestElementInBST() {
-	var examples TreeNode = TreeNode{3, &TreeNode{1, nil, &TreeNode{2, nil, nil}}, &TreeNode{4, nil, nil}}
+	var examples = TreeNode{3, &TreeNode{1, nil, &TreeNode{2, nil, nil}}, &TreeNode{4, nil, nil}}
 	var k = map[int]int{
 		1: 1,
 		2: 2,
@@ -66,14 +74,14 @@ func testKthSmallestElementInBST() {
 	}
 }
 
-func testGroupAnagrams()  {
-	input := []string{"eat","tea","tan","ate","nat","bat"}
-	checker := [][]string{{"bat"},{"nat","tan"},{"ate","eat","tea"}}
+func testGroupAnagrams() {
+	input := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
+	checker := [][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}}
 	output := groupAnagrams(input)
 	fmt.Println("GROUP ANAGRAMS:", input, output, "correct result:", checker)
 }
 
-func testSetMatrixZeroes()  {
+func testSetMatrixZeroes() {
 	example := [][]int{{1, 1, 1}, {0, 1, 1}, {1, 1, 1}}
 	result := setZeroes(example)
 	fmt.Println("SET MATRIX ZEROES:", result)
@@ -97,17 +105,17 @@ func testSpiralMatrix() {
 	println("\n")
 }
 
-func testAddTwoNumbersRecursive()  {
-	var example1 ListNode = ListNode{2, &ListNode{4, &ListNode{3, nil}}}
-	var example2 ListNode = ListNode{5, &ListNode{6, &ListNode{4, nil}}}
+func testAddTwoNumbersRecursive() {
+	var example1 = ListNode{2, &ListNode{4, &ListNode{3, nil}}}
+	var example2 = ListNode{5, &ListNode{6, &ListNode{4, nil}}}
 	result := addTwoNumbersRecursive(&example1, &example2)
 	fmt.Printf("ADD TWO NUMBERS RECURSIVE: Result:[%d,%d,%d]", result.Val, result.Next.Val, result.Next.Next.Val)
 	println("\n")
 }
 
-func oddEvenListTest()  {
-	var example ListNode = ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
-	var checker ListNode = ListNode{1, &ListNode{3, &ListNode{5, &ListNode{2, &ListNode{4, nil}}}}}
+func oddEvenListTest() {
+	var example = ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
+	var checker = ListNode{1, &ListNode{3, &ListNode{5, &ListNode{2, &ListNode{4, nil}}}}}
 	result := oddEvenList(&example)
 	var isResultCorrect bool
 	fmt.Printf("ODD EVEN LIST: Result:[")
