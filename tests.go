@@ -16,6 +16,14 @@ func main() {
 	testGroupAnagrams()
 	testRemoveDuplicates()
 	testPlusOne()
+	testTwoSum()
+}
+
+func testTwoSum() {
+	exampleNums := []int{2, 7, 11, 15}
+	exampleTarget := 9
+	test := twoSum(exampleNums, exampleTarget)
+	fmt.Printf("Test two sum example %d: result: %d \n", exampleNums, test)
 }
 
 func testRemoveDuplicates() {
