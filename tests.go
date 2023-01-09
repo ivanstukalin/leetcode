@@ -17,6 +17,25 @@ func main() {
 	testRemoveDuplicates()
 	testPlusOne()
 	testTwoSum()
+	testReverseInteger()
+}
+
+func testReverseInteger() {
+	examples := []int{123, 456, 789, 123456, 1534236469}
+	answers := []int{321, 654, 987, 654321, 0}
+	errors := 0
+	for key, value := range examples {
+		result := ReverseInteger(value)
+		if result != answers[key] {
+			fmt.Println("Test failed! Input: ", value, " Expected: ", answers[key], " Result: ", result)
+			errors++
+		}
+	}
+	if errors > 0 {
+		fmt.Println("Tests failed!")
+	} else {
+		fmt.Println("Tests passed!")
+	}
 }
 
 func testTwoSum() {
